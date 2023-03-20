@@ -6,7 +6,7 @@ const score1El = document.querySelector('#score--0');
 const score2El = document.getElementById('score--1');
 const diceEl = document.querySelector('.dice');
 const current1El = document.getElementById('current--0');
-const current2El = document.querySelector('current--1');
+const current2El = document.getElementById('current--1');
 
 const btnNewGame = document.querySelector('.btn--new');
 const btnRollDice = document.querySelector('.btn--roll');
@@ -20,8 +20,8 @@ const init = function(){
     activePlayer = 0;
     playing = true;
 
-    player1El.textContent = 0;
-    player2El.textContent =0;
+    current1El.textContent = 0;
+    current1El.textContent =0;
     score1El.textContent = 0;
     score2El.textContent = 0;
 
@@ -30,7 +30,7 @@ const init = function(){
     player1El.classList.remove('player--winner');
     player2El.classList.remove('player--winner');
     player1El.classList.add('player--active');
-    player2El.classList.add('player--active');
+    player2El.classList.remove('player--active');
 }
 
 init();
@@ -81,3 +81,4 @@ btnHoldPoints.addEventListener('click', function(){
     }
 })
 
+btnNewGame.addEventListener('click', init);
