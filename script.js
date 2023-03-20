@@ -35,4 +35,28 @@ const init = function(){
 
 init();
 
+const swithPlayer = function(){
+    document.getElementById(`current--${activePlayer}`).textContent = 0;
+    currentScore = 0;
+    activePlayer = activePlayer === 0 ? 1 : 0;
+    player1El.classList.toggle('player--active');
+    player2El.classList.toggle('player--active');
+}
+
+
+btnRollDice.addEventListener('click', function(){
+    if (playing) {
+        const dice = Math.trunc(Math.random() * 6) + 1;
+        diceEl.classList.remove('hidden');
+        diceEl.src = `dice-${dice}.png`;
+
+        if (dice !== 1) {
+            currentScore+= dice;
+            document.getElementById(`current--${activePlayer}`).textContent = currentScore;
+            
+        }else{
+            swithPlayer();
+        }
+    }
+});
 
